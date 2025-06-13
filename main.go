@@ -19,12 +19,11 @@ func main() {
 	fmt.Println(password)
 	a := app.New()
 	w := a.NewWindow("Password Vault")
+
 	passwordTextBound := binding.NewString()
 	passwordTextBound.Set("Ready to generate password...")
 	passwordTextWid := widget.NewLabelWithData(passwordTextBound)
 
-	//passwordText := widget.NewLabel("")
-	//passwordText.SetText("Password Soon")
 	generateButton := widget.NewButton("Generate", func() {
 		newPassword, err := GeneratePassword(20)
 		if err == nil {
@@ -53,7 +52,6 @@ func main() {
 	copyButton.Resize(fyne.NewSize(100, 40))
 
 	w.SetContent(content)
-	//generateButton.Resize(fyne.NewSize(50, 50))
 
 	w.Resize(fyne.NewSize(600, 200))
 	w.ShowAndRun()
